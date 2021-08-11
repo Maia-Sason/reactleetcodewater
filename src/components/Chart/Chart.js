@@ -8,7 +8,7 @@ import { leetcode } from "../../store/utils/thunkCreators";
 const Chart = ({maxX, maxY, array, minY, leetcode, maxResult, minResult, total}) => {
 
   useEffect(() => {
-    if (array) {
+    if (array && array.length > 0) {
       leetcode(array);
     }
   }, [array])

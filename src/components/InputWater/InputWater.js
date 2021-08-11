@@ -2,7 +2,7 @@ import {useState, useRef} from "react";
 import { connect } from "react-redux";
 import { setArrayChart, setMinMaxArrayChart } from "../../store/utils/thunkCreators";
 
-const InputWater = ({setMinMaxArrayChart, setArrayChart, leetcode}) => {
+const InputWater = ({setMinMaxArrayChart, setArrayChart}) => {
   const [val, setVal] = useState('');
   const [arr, setArr] = useState([]);
   const [invalid, setInvalid] = useState(false);
