@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/reactleetcodewater/static/css/main.b7450172.chunk.css",
-    "main.js": "/reactleetcodewater/static/js/main.2152c8d2.chunk.js",
-    "main.js.map": "/reactleetcodewater/static/js/main.2152c8d2.chunk.js.map",
+    "main.js": "/reactleetcodewater/static/js/main.a1579eda.chunk.js",
+    "main.js.map": "/reactleetcodewater/static/js/main.a1579eda.chunk.js.map",
     "runtime-main.js": "/reactleetcodewater/static/js/runtime-main.064df87d.js",
     "runtime-main.js.map": "/reactleetcodewater/static/js/runtime-main.064df87d.js.map",
     "static/js/2.d74e8718.chunk.js": "/reactleetcodewater/static/js/2.d74e8718.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.064df87d.js",
     "static/js/2.d74e8718.chunk.js",
     "static/css/main.b7450172.chunk.css",
-    "static/js/main.2152c8d2.chunk.js"
+    "static/js/main.a1579eda.chunk.js"
   ]
 }
