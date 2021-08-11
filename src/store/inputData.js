@@ -3,12 +3,20 @@ const SET_ARRAY = "SET_ARRAY";
 const SET_MIN = "SET_MIN";
 const SET_MAX = "SET_MAX";
 const SET_RESULT = "SET_RESULT";
+const SET_DIST = "SET_DIST";
 
 // Action Creators
 export const setArray = (array) => {
   return {
     type: SET_ARRAY,
     array,
+  }
+}
+
+export const setDistance = (distance) => {
+  return {
+    type: SET_DIST,
+    distance,
   }
 }
 
@@ -37,6 +45,12 @@ export const setResult = (res) => {
 // Reducer
 const reducer = (state = [], action) => {
   switch (action.type) {
+    case SET_DIST: {
+      return {
+        ...state,
+        distance: action.distance
+      }
+    }
     case SET_ARRAY:
       return {
         ...state,

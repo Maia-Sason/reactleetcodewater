@@ -1,20 +1,27 @@
-import {useState} from "react";
+import {useState, useRef} from "react";
 import { connect } from "react-redux";
-import { setMinMaxArrayChart } from "../../store/utils/thunkCreators";
+import { setArrayChart, setMinMaxArrayChart } from "../../store/utils/thunkCreators";
 
-const InputWater = ({setMinMaxArrayChart}) => {
+const InputWater = ({setMinMaxArrayChart, setArrayChart, leetcode}) => {
   const [val, setVal] = useState('');
+  const [arr, setArr] = useState([]);
   const [invalid, setInvalid] = useState(false);
+  const arrRef = useRef([]);
 
-  const onSubmit = (e) => {
+  const split = async (string) => {
+    const array = string.trim().split(' ').map(Number);
+    return array;
+  }
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const array = val.trim().split(' ');
+    const array = await split(val);
+    setArrayChart(array);
     setMinMaxArrayChart(array);
   }
 
   const change = (word) => {
     if (!word.match(/^$|^[\d\s]+$/)) {
-      console.log("Invalid input!");
       setInvalid(true);
     } else {
       setInvalid(false);
@@ -35,7 +42,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setMinMaxArrayChart: (array) => {
       dispatch(setMinMaxArrayChart(array));
-    }
+    },
+    setArrayChart: (array) => {
+      dispatch(setArrayChart(array));
+    },
   }
 }
 
