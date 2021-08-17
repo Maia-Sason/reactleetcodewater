@@ -33,7 +33,7 @@ In order to find that tower we need to go through all of the towers, multiply th
 
 Brute force approach would be O(N^2) if we were to loop over all the tower in a nested fashion.
 
-There is a better appraoch however.
+There is a better approach however.
 
 ### Better Approach:
 
