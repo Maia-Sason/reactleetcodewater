@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Leet Code Container With Most Water Visualized
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Based on Leetcode problem #11.
 
-## Available Scripts
+From Leetcode:
 
-In the project directory, you can run:
+>Given n non-negative integers a1, a2, ..., an , where each represents a point
+>at coordinate (i, ai). n vertical lines are drawn such that the two endpoints
+>of the line i is at (i, ai) and (i, 0). Find two lines, which, together with 
+>the x-axis forms a container, such that the container contains the most water.
 
-### `npm start`
+>Notice that you may not slant the container.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> **Input** height = [1,8,6,2,5,4,8,3,7]
+> **Output** 49
+> **Explanation** The above vertical lines are represented by array [1,8,6,2,5
+> 4,8,3,7]. In this case, the max area of water (blue section) the container
+> can contain is 49.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Live Demo:
+https://maia-sason.github.io/reactleetcodewater/
 
-### `npm test`
+## How it works and why?:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I wanted to create a visualized version of this problem because it lends itself well for visualization.
 
-### `npm run build`
+The output number comes from the distance between the most optimal lowest tower and its distance from the highest tower. The reason is that the lowest tower is the limiter of the entire equation, it doesn't matter how high your highest tower is if the lower tower has a value of 1. Water will not go over the lower tower.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The best lower tower would be a tower that is considerably high and far from the first tower.
+In order to find that tower we need to go through all of the towers, multiply the lower tower by its distance to the higher tower and see which 2 towers produce the best outcome.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Naive Approach:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Brute force approach would be O(N^2) if we were to loop over all the tower in a nested fashion.
 
-### `npm run eject`
+There is a better appraoch however.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Better Approach:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A better approach would be to use two pointers, one at the start and one at the end, moving the value of the index of the lowest tower further inwards and saving the outcome in a `maxValue` updating it only if the `maxValue` is less than the current value.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This would be an O(N) solution as we would only need to go through the array of heights once to find the answer.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Usage:
 
-## Learn More
+Input a sequence of numbers separated by spaces in the input field.
+On submit the columns highlighted in red are the best columns to hold the most water.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Tech used:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* React
+* React-Redux
+* thunk
